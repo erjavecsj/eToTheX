@@ -3,10 +3,11 @@ import java.util.Scanner;
 public class eToTheX {
 
 	public static void main(String[] args) {
+		double x = 0;
 		Scanner reader = new Scanner(System.in);
 
 		System.out.print("Enter x: ");
-		int x =reader.nextInt();
+		x =reader.nextDouble();
 		eToThex(x);
 	}
 
@@ -14,29 +15,35 @@ public class eToTheX {
 		double term = 1.0;
 		double sum = 1.0;
 
-		
-
-		for (int i = 1; term <= Math.pow(10,-12); i++) {
-			term = Math.pow(x,i)/fact(x);
+		for (int i = 1; term >= Math.pow(10,-12); i++) {
+<<<<<<< HEAD
+			term = Math.pow(x,i)/factorial(i);
+=======
+			iSubFact = i;
+			while (iSubFact >= 1) {
+				iFact = iFact + iSubFact;
+				iSubFact = iSubFact -1;
+			}
+			term = Math.pow(x,i)/iFact;
+>>>>>>> 6bc43fc5ebc57f028516ce0a6cf7d554effcfb50
 			sum = sum + term;
-			System.out.println("n: " + i + " term: " + term + " sum: " + sum);
+			System.out.println("n: " + i + "\tterm: " + term + "\tsum: " + sum);
+
 		}
 
-		return;
-
-
-	}
-
-	public static void fact(int x) {
-		int fact = 1;
-		for ( int i = 1; i >= x; i++) {
-				fact = fact * i;
-		}
+		System.out.println("\tmy\te^x: " + sum);
+		System.out.println("real\te^x: " + Math.exp(x));
 
 		return;
 	}
 
-	
+    public static int factorial(int n) {
+        int fact = 1; 
+        for (int i = 1; i <= n; i++) {
+            fact *= i;
+        }
+        return fact;
+    }
 }
 			
 
